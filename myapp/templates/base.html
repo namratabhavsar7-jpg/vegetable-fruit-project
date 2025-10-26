@@ -1,6 +1,4 @@
 {% load static %}
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,111 +7,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>{% block title %}My Grocery Store{% endblock %}</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    <div class="container-fluid small-header">
+    <!-- Small Header -->
+    <div class="container-fluid small-header text-white p-2" >
         <div class="container">
-            <div class="row text-light align-items-center p-2">
-
-                <!-- Left: Contact -->
+            <div class="row align-items-center">
                 <div class="col-md-4 col-12 text-start mb-2 mb-md-0">
                     <i class="fa-regular fa-envelope"></i> contact@example.com
                     <i class="fa-solid fa-mobile-screen ms-2"></i> +1 5589 554888 55
                 </div>
-
-                <!-- Center: Search -->
                 <div class="col-md-4 col-12 mb-2 mb-md-0">
                     <form class="d-flex justify-content-center" method="get" action="{% url 'search' %}">
-                        <input class="form-control me-2 w-75" type="search" name="q" placeholder="Search products..."
-                            aria-label="Search">
+                        <input class="form-control me-2 w-75" type="search" name="q" placeholder="Search products...">
                         <button class="btn btn-success" type="submit">Search</button>
                     </form>
                 </div>
-
-                <!-- Right: Social -->
                 <div class="col-md-4 col-12 text-end">
                     <i class="fa-brands fa-x-twitter me-2"></i>
                     <i class="fa-brands fa-facebook me-2"></i>
                     <i class="fa-brands fa-instagram me-2"></i>
                     <i class="fa-brands fa-linkedin"></i>
                 </div>
-
             </div>
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark nav-custom">
+
+    <!-- Navbar -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark nav-custom bg-success">
         <div class="container">
             <a class="navbar-brand" href="/">My Grocery Store</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-
                     <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
-
-                    <!-- Categories Dropdown -->
-                    <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Categories
-                        </a>
-                        <ul class="dropdown-menu">
-                            {% for category in categories %}
-                            <li>
-                                <a class="dropdown-item" href="{% url 'category_products' category.id %}">{{
-                                    category.name }}</a>
-                            </li>
-                            {% empty %}
-                            <li><span class="dropdown-item">No Categories</span></li>
-                            {% endfor %}
-                        </ul>
-                    </li> -->
-
                     <li class="nav-item"><a class="nav-link" href="/cart/">Cart</a></li>
                     <li class="nav-item"><a class="nav-link" href="/wishlist/">Wishlist</a></li>
                     <li class="nav-item"><a class="nav-link" href="/">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
-
                 </ul>
             </div>
         </div>
+    </nav> -->
+    <nav class="navbar navbar-dark " style="background-color: #09581e;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Fresh Fruits & Veggies</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Offcanvas -->
+            <div class="offcanvas offcanvas-start" style="background-color: #09581e;" tabindex="-1"
+                id="offcanvasNavbar">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title">Menu</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav flex-grow">
+                        <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/cart/">Cart</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/wishlist/">Wishlist</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
     </nav>
-
-    <!-- 🔹 Debug Section for Categories -->
-    <!-- <div class="container mt-4">
-        <h3>Debug: Categories List</h3>
-        <ul>
-            {% for c in categories %}
-                <li>{{ c.id }} - {{ c.name }}</li>
-            {% empty %}
-                <li>No categories found</li>
-            {% endfor %}
-        </ul>
-    </div> -->
-
-
     {% block content %}
-
-
     {% endblock %}
 
-    <footer class=" text-white mt-auto py-4" style="background-color: #09581e;">
+    <!-- Footer -->
+    <footer class="text-white mt-auto py-4" style="background-color: #09581e;">
         <div class="container">
             <div class="row text-start">
-                <!-- About -->
                 <div class="col-md-4 col-12 mb-3">
                     <h5>About</h5>
                     <p>This is a practice Fruits & Vegetables website created for learning purposes.</p>
                 </div>
-
-                <!-- Quick Links -->
                 <div class="col-md-4 col-12 mb-3">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
@@ -122,30 +102,23 @@
                         <li><a href="#" class="text-white text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
-
-                <!-- Contact -->
                 <div class="col-md-4 col-12 mb-3">
                     <h5>Contact</h5>
                     <p>Email: example@gmail.com</p>
                     <p>Phone: 1234567890</p>
                     <div class="mt-2">
-                        <!-- Social Media Icons -->
                         <a href="#" class="text-white me-2"><i class="fab fa-facebook fa-lg"></i></a>
                         <a href="#" class="text-white me-2"><i class="fab fa-twitter fa-lg"></i></a>
                         <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
                     </div>
                 </div>
             </div>
-
             <hr class="bg-light">
-
-            <!-- Copyright -->
             <div class="text-center small">
                 &copy; 2025 My Grocery Store. All rights reserved. <br> Made by Namrata Bhavsar
             </div>
         </div>
     </footer>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

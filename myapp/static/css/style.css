@@ -1,94 +1,177 @@
-/* ------------------------------------------ Navbar ------------------------------------------- */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ----------------------------- Global ----------------------------- */
+  html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-.nav-custom {
-    background-color: #09581e;
-    height: 50px;
-    /* color: black; */
-}
+        body {
+            display: flex;
+            flex-direction: column;
+        }
 
-.navbar-nav {
-    gap: 80px;
+        main {
+            flex: 1 0 auto;
+            /* padding-top: 56px; */
+        }
 
-}
+        footer {
+            flex-shrink: 0;
+        }
 
+        /* Hero Section */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            /* ya jitna chahiye */
+        }
+
+        .hero-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-text-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            /* horizontal center */
+            align-items: center;
+            /* vertical center */
+        }
+
+        .hero-text {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            padding: 0 20px;
+            /* mobile padding */
+        }
+
+        /* Offcanvas z-index fix */
+        .offcanvas {
+            z-index: 1029;
+        }
+        /* Small Header */
 .small-header {
     background-color:#09581e;
-    color: black;
-
+    
+    color: white;
+    padding: 5px 0;
+    font-size: 0.9rem;
 }
 
-.footer-custom {
-    background-color: #09581e;
-    height: 300px;
+.small-header .fa,
+.small-header i {
+    margin-right: 5px;
 }
 
-.footer-text {
-    margin-top: 100px;
+.small-header .form-control {
+    height: 30px;
+    font-size: 0.9rem;
 }
 
-/* ---------------------------------------- hero section --------------------------------------------- */
-html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    /* overflow-x: hidden; extra scroll bar हटाने के लिए */
+.small-header .btn {
+    height: 30px;
+    font-size: 0.9rem;
 }
-.hero{
-    background-image: url("/static/images/img3.png");
-    min-height: 100vh;   /* full screen height */
-    width: 100vw;        /* full screen width */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(2, 49, 14);
-}
-/* ---------------------------------------- sec-2 info Icons --------------------------------------- */
 
+/* ----------------------------- Icons Section -------------------- */
 .circle {
-    width: 50%;           /* parent column ke width ke hisaab se */
-    aspect-ratio: 1/1;     /* perfect circle */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    margin: auto;
     text-align: center;
-    padding: 20px;         /* icon ke aas paas spacing */
+    color: #000;
 }
 
 .circle i {
-    font-size: 2rem;       /* icon size */
-    margin-bottom: 10px;   /* icon aur text ke beech gap */
+    font-size: 2rem;
+    margin-bottom: 10px;
 }
 
-/* Background colors for each circle */
+/* Circle background colors */
 .rnd1 { background-color: plum; }
 .rnd2 { background-color: #dcc698; }
 .rnd3 { background-color: rgb(144, 214, 179); }
 .rnd4 { background-color: burlywood; }
 
-/* ---------------------------------------- cards --------------------------------------------  */
-.card1{
-    background-color: whitesmoke;
-    width: 25%;
-    height: 100%;
+/* ----------------------------- Cards Section -------------------- */
+.card {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.card-title a{
+.card-title a {
     color: black;
     text-decoration: none;
 }
 
-/* --------------------------------------- contact us ---------------------------------------------- */
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+/* ----------------------------- About / Contact ------------------ */
 .contact-container {
-      padding: 50px 0;
+    padding: 50px 0;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+}
+
+/* ----------------------------- Footer ---------------------------- */
+footer {
+    background-color: #09581e;
+    color: white;
+    padding: 40px 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ----------------------------- Responsive Adjustments ------------------ */
+@media (max-width: 768px) {
+    .navbar-nav {
+        gap: 15px;
+    }
+
+    .circle {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card-img-top {
+        height: 150px;
+    }
 }

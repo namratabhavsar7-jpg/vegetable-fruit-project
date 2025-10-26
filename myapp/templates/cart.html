@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Your Cart{% endblock %}
+
+{% block content %}
+<div class="container mt-4 mb-4">
+    <h2 class="mb-4 text-center">Your Cart</h2>
+
+    {% if cart_items %}
+    <table class="table table-bordered text-center align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>Product</th>
+                <th>Price (₹/kg)</th>
+                <th>Quantity (kg)</th>
+                <th>Subtotal (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.product.price }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.subtotal }}</td>
+                <td>
+                    <a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-sm btn-danger">Remove</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+
+    </table>
+
+    <h4 class="text-end">Total: ₹ {{ total }}</h4>
+    <div class="text-end mt-3">
+        <a href="{% url 'checkout' %}" class="btn mt-3 text-white" style="background-color:#09581e;">Proceed to
+            Checkout</a>
+    </div>
+   
+    {% else %}
+    <p>Your cart is empty.</p>
+    <a href="{% url 'home' %}" class="btn mt-3 text-white" style="background-color: #09581e;">Go Shopping</a>
+    {% endif %}
+</div>
+{% endblock %}

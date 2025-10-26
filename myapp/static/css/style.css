@@ -1,0 +1,94 @@
+/* ------------------------------------------ Navbar ------------------------------------------- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-custom {
+    background-color: #09581e;
+    height: 50px;
+    /* color: black; */
+}
+
+.navbar-nav {
+    gap: 80px;
+
+}
+
+.small-header {
+    background-color:#09581e;
+    color: black;
+
+}
+
+.footer-custom {
+    background-color: #09581e;
+    height: 300px;
+}
+
+.footer-text {
+    margin-top: 100px;
+}
+
+/* ---------------------------------------- hero section --------------------------------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    /* overflow-x: hidden; extra scroll bar हटाने के लिए */
+}
+.hero{
+    background-image: url("/static/images/img3.png");
+    min-height: 100vh;   /* full screen height */
+    width: 100vw;        /* full screen width */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(2, 49, 14);
+}
+/* ---------------------------------------- sec-2 info Icons --------------------------------------- */
+
+.circle {
+    width: 50%;           /* parent column ke width ke hisaab se */
+    aspect-ratio: 1/1;     /* perfect circle */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-align: center;
+    padding: 20px;         /* icon ke aas paas spacing */
+}
+
+.circle i {
+    font-size: 2rem;       /* icon size */
+    margin-bottom: 10px;   /* icon aur text ke beech gap */
+}
+
+/* Background colors for each circle */
+.rnd1 { background-color: plum; }
+.rnd2 { background-color: #dcc698; }
+.rnd3 { background-color: rgb(144, 214, 179); }
+.rnd4 { background-color: burlywood; }
+
+/* ---------------------------------------- cards --------------------------------------------  */
+.card1{
+    background-color: whitesmoke;
+    width: 25%;
+    height: 100%;
+}
+
+.card-title a{
+    color: black;
+    text-decoration: none;
+}
+
+/* --------------------------------------- contact us ---------------------------------------------- */
+.contact-container {
+      padding: 50px 0;
+}

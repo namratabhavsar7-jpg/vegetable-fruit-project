@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+{% block content %}
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Card -->
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4">Create Your Account</h3>
+                    
+                    <!-- Messages -->
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <!-- Form -->
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                        <!-- First Name -->
+                        <div class="mb-3">
+                            <label for="first_name" class="form-label">First Name</label>
+                            <input type="text" name="first_name" id="first_name" class="form-control" placeholder="Enter your first name" required>
+                        </div>
+
+                        <!-- Last Name -->
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">Last Name</label>
+                            <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Enter your last name" required>
+                        </div>
+
+                        
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="example@email.com" required>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" name="phone" id="phone" class="form-control" placeholder="+91 9876543210">
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Enter password" required>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label">Confirm Password</label>
+                            <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder="Re-enter password" required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Register</button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <a href="{% url 'login' %}" class="text-decoration-none text-success">
+                            Already have an account? <strong>Login</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

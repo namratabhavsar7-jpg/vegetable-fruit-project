@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<!-- Hero section -->
+<div class="hero">
+    <div class="hero-content text-white">
+        <h1>Welcome to Our Store</h1>
+        <p>Find the best products here</p>
+    </div>
+</div>
+<!-- icons -->
+<div class="container mt-5 mb-5">
+  <div class="row text-center g-4">
+    <!-- Free Shipping -->
+    <div class="col-6 col-md-3">
+      <div class="rounded-circle d-flex flex-column justify-content-center align-items-center mx-auto" style="width:100px; height:100px; background-color: plum;">
+        <i class="fa-regular fa-truck fa-2x mb-2"></i>
+        <h6 class="mb-0 w-75">Free Shipping</h6>
+      </div>
+    </div>
+
+    <!-- Always Fresh -->
+    <div class="col-6 col-md-3">
+      <div class="rounded-circle d-flex flex-column justify-content-center align-items-center mx-auto" style="width:100px; height:100px;background-color: #dcc698;">
+        <i class="fa-solid fa-apple-whole fa-2x mb-2"></i>
+        <h6 class="mb-0 w-75">Always Fresh</h6>
+      </div>
+    </div>
+
+    <!-- Superior Quality -->
+    <div class="col-6 col-md-3">
+      <div class="rounded-circle d-flex flex-column justify-content-center align-items-center mx-auto" style="width:100px; height:100px;background-color: rgb(144, 214, 179);">
+        <i class="fa-solid fa-award fa-2x mb-2"></i>
+        <h6 class="mb-0 ">Superior Quality</h6>
+      </div>
+    </div>
+
+    <!-- Customer Service -->
+    <div class="col-6 col-md-3">
+      <div class="rounded-circle d-flex flex-column justify-content-center align-items-center mx-auto" style="width:100px; height:100px;background-color: burlywood;">
+        <i class="fa-regular fa-user fa-2x mb-2"></i>
+        <h6 class="mb-0 ">Customer Service</h6>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Categories -->
+<div class="container mt-5">
+  <div class="row text-center">
+    <h2 class="mb-5">Our Products</h2>
+    {% for category in categories %}
+      <div class="col-6 col-md-3 mb-4">
+        <div class="card shadow-sm p-3">
+          {% if category.image %}
+            <img src="{{ category.image.url }}" class="card-img-top" alt="{{ category.name }}">
+          {% else %}
+            <i class="fa-solid fa-apple-whole fa-2x"></i>
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{% url 'category_products' category.id %}">{{ category.name }}</a>
+            </h5>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<!-- About Us -->
+<div class="container mt-5 mb-5">
+  <div class="row text-center mb-5">
+    <h2>About Us</h2>
+  </div>
+
+  <div class="row align-items-center">
+    <!-- Left side image -->
+    <div class="col-md-6">
+      <img src="../static/images/about-img.png" alt="About Image" class="img-fluid rounded">
+    </div>
+
+    <!-- Right side text -->
+    <div class="col-md-6">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt quas, ducimus eos placeat laborum corrupti at aperiam consequatur autem eveniet optio modi incidunt aliquid laudantium earum, distinctio delectus totam sed et sint tempora itaque similique! Eligendi eius nostrum deserunt officia magni, nihil odit enim sapiente ad aliquam earum sint voluptatum?</p>
+      <p>Email: example@gmail.com</p>
+      <p>Phone: 1234567890</p>
+    </div>
+  </div>
+</div>
+<!-- Contact Us -->
+<div class="container contact-container mb-5">
+  <div class="row text-center mb-5">
+    <h2>Contact Us</h2>
+  </div>
+
+  <div class="row">
+    <!-- Left side form -->
+    <div class="col-md-6 contact-form">
+      <form>
+        <input type="text" class="form-control shadow-sm mb-3 p-3 rounded" placeholder="Name" required>
+        <input type="tel" class="form-control shadow-sm mb-3 p-3 rounded" placeholder="Phone Number" required>
+        <input type="email" class="form-control shadow-sm mb-3 p-3 rounded" placeholder="Email" required>
+        <textarea class="form-control  shadow-sm mb-3 p-3 rounded " rows="3" placeholder="Message" required></textarea>
+        <button type="submit" class="btn btn-success rounded-5 w-25">Send</button>
+      </form>
+    </div>
+
+    <!-- Right side map -->
+    <div class="col-md-6 contact-map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.902315291567!2d90.41251871536067!3d23.750903894833423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b0f9e2f3d9%3A0x36e5a5656c3e5a92!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sin!4v1694208123456!5m2!1sen!2sin" 
+        width="100%" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</div>
+{% endblock %}
